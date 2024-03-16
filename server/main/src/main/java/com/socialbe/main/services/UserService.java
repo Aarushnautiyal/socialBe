@@ -1,15 +1,19 @@
 package com.socialbe.main.services;
 
 import com.socialbe.main.DTO.request.UserDTO;
+import com.socialbe.main.repository.User;
 import org.springframework.http.ResponseEntity;
+
+import java.util.List;
 
 
 public interface UserService {
-    public ResponseEntity<?> createUser(UserDTO user) throws Exception;
-    public ResponseEntity<?> getUsers();
-    public ResponseEntity<?> findUserById(Long userId);
-    public ResponseEntity<?> findUserByEmail(String email);
-    public ResponseEntity<?> followUser(Long followingUserId, Long followedByUserId);
-    public ResponseEntity<?> updateUserData(Long userId, UserDTO userDTO) throws Exception;
-    public ResponseEntity<?> deleteUser(Long userId) throws Exception;
+    public User createUser(UserDTO user) throws Exception;
+    public List<User> getUsers();
+    public User findUserById(Long userId) throws Exception;
+    public User findUserByEmail(String email) throws Exception;
+    public  String followUser(Long followingUserId, Long followedByUserId) throws Exception;
+    public String updateUserData(Long userId, UserDTO userDTO) throws Exception;
+    public String deleteUser(Long userId) throws Exception;
+    public List<User> searchUser(String value) throws Exception;
 }

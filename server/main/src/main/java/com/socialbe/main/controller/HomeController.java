@@ -1,6 +1,5 @@
 package com.socialbe.main.controller;
 
-import com.socialbe.main.util.ResponseBuilder;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;

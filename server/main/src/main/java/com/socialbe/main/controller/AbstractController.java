@@ -7,10 +7,11 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class AbstractController {
-
-    public static ResponseEntity<Object> buildResponse(HttpStatus status, Object body) {
-        AbstractController.status = status;
-        AbstractController.body = body;
+    private Integer status;
+    private Object body;
+    private static String myStatus= "OK";
+    public ResponseEntity<Object> buildResponse(HttpStatus status, Object body) {
+        this.body = body;
         Map<String,Object> myResBody = new HashMap<>();
         myResBody.put("status",status);
         myResBody.put("data",body);
