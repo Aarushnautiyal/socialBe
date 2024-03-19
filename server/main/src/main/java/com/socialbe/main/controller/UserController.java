@@ -1,10 +1,9 @@
 package com.socialbe.main.controller;
 
 import com.socialbe.main.DTO.request.UserDTO;
-import com.socialbe.main.services.UserService;
+import com.socialbe.main.services.User.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.repository.query.Param;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
