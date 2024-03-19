@@ -9,7 +9,7 @@ import java.util.List;
 
 public interface UserService {
     public User createUser(UserDTO user) throws Exception;
-    public List<User> getUsers();
+    public List<User> getUsers(Integer pageNumber,Integer limit);
     public User findUserById(Long userId) throws Exception;
     public User findUserByEmail(String email) throws Exception;
     public  String followUser(Long followingUserId, Long followedByUserId) throws Exception;

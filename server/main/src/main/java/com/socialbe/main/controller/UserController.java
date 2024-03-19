@@ -20,8 +20,8 @@ public class UserController extends AbstractController {
     UserService userService;
 
     @GetMapping(value = "/users",produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<?> getUsers(){
-        return buildResponse(HttpStatus.OK,userService.getUsers());
+    public ResponseEntity<?> getUsers(@RequestParam(value = "page",defaultValue = "0")Integer pageNumber,@RequestParam(value = "limit",defaultValue = "8") Integer limit){
+        return buildResponse(HttpStatus.OK,userService.getUsers(pageNumber,limit));
     }
 
     @PostMapping(value = "/user")

@@ -5,7 +5,8 @@ import com.socialbe.main.repository.User;
 import com.socialbe.main.repository.UserRepo;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
@@ -29,10 +30,12 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public List<User> getUsers() {
-//        List<User> users = userRepo.findAll();
-        return userRepo.findAll();
+    public List<User> getUsers(Integer pageNumber, Integer limit) {
+        PageRequest pageRequest = PageRequest.of(pageNumber, limit);
+        Page<User> userPage= userRepo.findAll(pageRequest);
+        return  userPage.getContent();
     }
+
 
     @Override
     public User findUserById(Long userId) throws Exception {
